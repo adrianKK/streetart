@@ -20,5 +20,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 
 cfs:standard-packages
-
+iron:router
 cfs:gridfs
+zimme:active-route

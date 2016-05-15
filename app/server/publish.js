@@ -7,7 +7,16 @@ Meteor.publish('foo_bar',function(name){
 });
 
 
-Meteor.publish('images',function(){
+Meteor.publish('images',function(page){
+    if(!page) {
+        page = 1;
+    }
 
-    return Images.find()
-})
+    var limit = 1;
+    var skip = page-1;
+
+    return Images.find({},{
+        skip:skip,
+        limit:1
+        })
+});

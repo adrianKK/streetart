@@ -1,0 +1,17 @@
+<template name="images">
+
+
+
+    {{#with image}}
+
+        <div class="image-container">
+            <img src="{{url}}" alt="">
+        </div>
+
+    {{/with}}
+
+
+    {{> paginator options=paginatorOptions}}
+    
+    
+</template>
