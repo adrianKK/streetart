@@ -1,9 +1,12 @@
 <head>
   <title>simple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!123g1jk2hg3</h1>
+  <h1>Welcome to Meteor!</h1>
 
   {{> hello}}
   {{> info}}
@@ -12,6 +15,20 @@
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+
+    {{#each rabbits}}
+        <div>{{name}}</div>
+    {{/each}}
+    
+    
+    {{#each images}}
+        <img src="{{url}}" alt="">
+        
+    {{/each}}
+
+    <input name="Datei" type="file" id="upload-image" accept="text/*">
+
+    
 </template>
 
 <template name="info">
