@@ -2,6 +2,9 @@
 
     <ul class="pagination">
         <li><a href="#" class="prev-page">&laquo;</a></li>
+        {{#each pages}}
+            <li><a href="#" class="page">{{this}}</a></li>
+        {{/each}}
         <li><a href="#" class="next-page">&raquo;</a></li>
     </ul>
 

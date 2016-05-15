@@ -9,16 +9,28 @@ template.onCreated(function helloOnCreated() {
 });
 
 template.helpers({
+    getLikes(){
+      if(this.likes) {
+          return this.likes.length
+      }else {
+          return 0;
+      }
+    },
     paginatorOptions(){
         return {
-            routeName: 'images'
+            routeName: 'images',
+            itemsPerPage:1,
+            counts: Counts.get('image_counts')
         }
     }
 });
 
 template.events({
 
-    'click button'(event, instance) {
+    'click .like-image'(event, instance) {
+        Meteor.call('image.like',this._id,function(e,r){
+            console.log(e,r)
+        })
     },
 });
 

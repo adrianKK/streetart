@@ -24,9 +24,28 @@ Images = new FS.Collection("images", {
     stores: [imageStore]
 });
 
+
+
+
+
 Images.allow({
     insert: function (userId, doc) {
-        return true;
+        if(userId) {
+            if(!doc.metadata || doc.metadata.owner !== userId) {
+                return false;
+            }
+            
+            var currentUploads = Images.find({
+                'metadata.owner': userId,
+                uploadedAt: {$gt: new Date(moment().format('MM.DD.YYYY'))}
+            }).count();
+
+            if(currentUploads >= 100) {
+                return false;
+            }
+
+            return true
+        }
     },
     update: function (userId, doc, fields, modifier) {
         return true;

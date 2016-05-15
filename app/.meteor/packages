@@ -23,3 +23,15 @@ cfs:standard-packages
 iron:router
 cfs:gridfs
 zimme:active-route
+tmeasday:publish-counts
+twbs:bootstrap
+accounts-base
+accounts-password
+accounts-facebook
+accounts-google
+ian:accounts-ui-bootstrap-3
+momentjs:moment
+aldeed:simple-schema
+aldeed:collection2
+email
+fortawesome:fontawesome

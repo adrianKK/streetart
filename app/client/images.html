@@ -3,6 +3,11 @@
 
 
     {{#with image}}
+        <a href="{{pathFor 'user' _id=this.metadata.owner}}"> <i class="fa fa-user" aria-hidden="true"></i> show user</a>
+        <a class="like-image" > <i class="fa fa-like" aria-hidden="true"></i> like</a>
+    
+    <span>Likes: {{getLikes}}</span>
+
 
         <div class="image-container">
             <img src="{{url}}" alt="">
@@ -10,8 +15,10 @@
 
     {{/with}}
 
+    <div class="text-center">
+        {{> paginator options=paginatorOptions}}
+    </div>
 
-    {{> paginator options=paginatorOptions}}
-    
+
     
 </template>

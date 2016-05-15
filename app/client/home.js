@@ -14,11 +14,20 @@ template.helpers({
 template.events({
     'change #upload-image': function(event) {
         var files = event.target.files;
-        for (var i = 0, ln = files.length; i < ln; i++) {
-            Images.insert(files[i], function (err, fileObj) {
-                console.log(err,fileObj);
+        FS.Utility.eachFile(event, function(file) {
+            var fileObj = new FS.File(file);
+            fileObj.metadata = { owner: Meteor.userId() };
+            Images.insert(fileObj,function(err,r){
+
+                if(err) {
+                    swal({   title: "Error!",   text: err,   type: "error",   confirmButtonText: ":-(" });
+                }else {
+                    swal({   title: "Success!",   text: 'uploaded!!!',   type: "success",   confirmButtonText: "cool" });
+
+                }
+
             });
-        }
+        });
     }
 
 });
